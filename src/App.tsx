@@ -25,17 +25,17 @@ function App() {
       <Header />
       <SearchBar />
       <div
-        style={{
-          display: 'flex',
-          justifyContent: 'space-evenly',
-          flexWrap: 'wrap',
-        }}
+        // style={{
+        //   display: 'flex',
+        //   justifyContent: 'space-evenly',
+        //   flexWrap: 'wrap',
+        //   // gap: '10px',
+        // }}
+        className='px-[40px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8  py-4 md:py-8 mb-20'
       >
-        {/* <div>Car listsss</div> */}
         {carList?.map((car: any, index) => (
           <CarCard {...car?.fields} />
         ))}
-        {/* <div>Cart</div> */}
       </div>
       <Footer />
     </div>

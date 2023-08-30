@@ -3,14 +3,18 @@ import React from 'react';
 function Footer() {
   return (
     <div className='app-footer'>
-      <div>
-        <p>Drivehub Co.,Ltd</p>
-        <p>
-          193-195 Lake Rajada Office Complex, Ratchadapisek road, Khlong Toei,
-          Bangkok
+      <div className='flex flex-col justify-end items-start h-full py-4'>
+        <p className='text-base font-semibold'>Drivehub Co.,Ltd</p>
+        <p className='text-xs font-normal text-left'>
+          193-195 Lake Rajada Office Complex, <br />
+          Ratchadapisek road, Khlong Toei, Bangkok
         </p>
       </div>
-      <div>© Drivehub 2023</div>
+      <div className='flex flex-col justify-end h-full py-4'>
+        <p className='text-xs font-normal'>
+          © Drivehub {new Date().getFullYear()}
+        </p>
+      </div>
     </div>
   );
 }

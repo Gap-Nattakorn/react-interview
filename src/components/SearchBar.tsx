@@ -2,11 +2,11 @@ import React from 'react';
 
 function SearchBar() {
   return (
-    <div className='h-[100px] bg-white flex justify-between items-center px-[40px]'>
+    <div className='md:h-[100px] bg-white flex flex-col md:flex-row justify-between md:items-center px-[40px] mt-3 gap-2 md:gap-0 py-3 md:py-0'>
       <div>
         <p className='text-3xl font-semibold'>Car Available</p>
       </div>
-      <div className='flex gap-2'>
+      <div className='flex flex-col md:flex-row gap-2 w-full md:w-[inherit]'>
         <input
           className='shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline'
           id='searchCar'
