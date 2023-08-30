@@ -1,23 +1,43 @@
-import logo from "./logo.svg";
+import Header from './components/layout/Header';
+import Footer from './components/layout/Footer';
+import { useEffect, useState } from 'react';
+import axios from './providers/axiosInstance';
 
-import "./App.css";
+import './App.css';
+import SearchBar from './components/SearchBar';
+import CarCard from './components/CarCard';
 
 function App() {
+  const [carList, setCarList] = useState([]);
+  useEffect(() => {
+    getCarList();
+  }, []);
+  const getCarList = async () => {
+    const carListRes = await axios.get(
+      'https://cdn.contentful.com/spaces/vveq832fsd73/entries?content_type=car',
+    );
+    if (carListRes?.data?.items?.length > 0) {
+      setCarList(carListRes?.data?.items);
+    }
+  };
   return (
     <div>
-      <div className="app-header">
-        <img src={logo} alt="logo" /> <span>Drivehub</span>
-      </div>
+      <Header />
+      <SearchBar />
       <div
         style={{
-          display: "flex",
-          justifyContent: "space-evenly",
+          display: 'flex',
+          justifyContent: 'space-evenly',
+          flexWrap: 'wrap',
         }}
       >
-        <div>Car list</div>
-        <div>Cart</div>
+        {/* <div>Car listsss</div> */}
+        {carList?.map((car: any, index) => (
+          <CarCard {...car?.fields} />
+        ))}
+        {/* <div>Cart</div> */}
       </div>
-      <div className="app-footer">FOOTER</div>
+      <Footer />
     </div>
   );
 }
